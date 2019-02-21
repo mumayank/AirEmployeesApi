@@ -1,6 +1,5 @@
 # AirEmployeesApi
 
-***
 
 #### 1
 Create user in mysql
@@ -73,6 +72,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 ```java
 public class FeatureApi {
+
   @GetMapping
   public String getX() {
     return "";
@@ -117,6 +117,7 @@ private long id
 
 ```java
 @Column(nullable=false, length=100)
+```
 - For boolean fields, define defaults like:
 ```java
 private Boolean email=false
