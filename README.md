@@ -1,6 +1,6 @@
 # AirEmployeesApi
 
-- Step-wise instructions given in [wiki](https://github.com/mumayank/AirEmployeesApi/wiki/0.-Home)
+- Step-wise instructions given in [wiki](https://github.com/mumayank/AirEmployeesApi/wiki/0.-Home) (outdated)
 - All instructions in one shot given below:
 
 ***
@@ -26,7 +26,7 @@ CREATE DATABASE XXX;
 #### 2. Spring Boot Project:
 
 - [start.spring.io](https://start.spring.io)
-- `Web`, `MySQL`, `JPA`
+- `Web`, `MySQL`, `JPA`, `Security`
 - Download
 - Extract
 - Import in IDE
