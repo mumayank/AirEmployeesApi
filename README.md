@@ -1,6 +1,9 @@
 # AirEmployeesApi
 
-In short:
+- Step-wise instructions given in [wiki](https://github.com/mumayank/AirEmployeesApi/wiki/0.-Home)
+- All instructions in one shot given below:
+
+***
 
 #### 1. MySQL:
 
