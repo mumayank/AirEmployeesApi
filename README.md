@@ -21,7 +21,7 @@ CREATE DATABASE XXX;
 #### 2. Spring Boot Project:
 
 - [start.spring.io](https://start.spring.io)
-- `Web`, `MySQL`, `JPA`, `Security`
+- `Web`, `MySQL`, `JPA`, `Security`, `Json Web Token`(from [here](https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt/0.6.0))
 - Download
 - Extract
 - Import in IDE
