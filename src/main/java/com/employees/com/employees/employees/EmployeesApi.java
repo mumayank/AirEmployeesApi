@@ -29,6 +29,7 @@ public class EmployeesApi {
     public String createEmployee(@RequestBody EmployeeCreateRequest employeeCreateRequest) {
         EmployeeEntity employeeEntity = new EmployeeEntity();
         BeanUtils.copyProperties(employeeCreateRequest, employeeEntity);
+        //employeeEntity.setPassword(new BCryptPasswordEncoder().encode(employeeCreateRequest.getPassword()));
         employeeRepository.save(employeeEntity);
         return "saved";
     }
@@ -37,17 +38,43 @@ public class EmployeesApi {
     public String updateEmployee(@RequestBody EmployeeUpdateRequest employeeUpdateRequest) {
         Optional<EmployeeEntity> employeeEntityOptional = employeeRepository.findById(employeeUpdateRequest.getId());
         EmployeeEntity employeeEntity;
+
         if (employeeEntityOptional.isPresent()) {
             employeeEntity = employeeEntityOptional.get();
         } else {
             return "Could not complete this action as there is no employee with this ID";
         }
+
+        boolean arePasswordsOkay = true;
+        boolean shouldUpdatePassword = false;
+        if (employeeUpdateRequest.getOldPassword() != null) {
+            if (employeeUpdateRequest.getPassword() == null) {
+                shouldUpdatePassword = true;
+            } else {
+                arePasswordsOkay = false;
+            }
+        } else {
+            if (employeeUpdateRequest.getPassword() != null) {
+                arePasswordsOkay = false;
+            } else {
+                // ignore
+            }
+        }
+        if (arePasswordsOkay == false) {
+            return "Could not complete this action as both passwords (old and new) not provided";
+        }
+        if (shouldUpdatePassword) {
+            //String oldPassword = new BCryptPasswordEncoder().encode(employeeUpdateRequest.getOldPassword());
+            if (employeeEntity.getPassword().equals(employeeUpdateRequest.getOldPassword())) {
+                employeeEntity.setPassword(employeeUpdateRequest.getPassword());
+            } else {
+                return "Could not complete this action as invalid old password";
+            }
+        }
         if (employeeUpdateRequest.getName() != null) {
             employeeEntity.setName(employeeUpdateRequest.getName());
         }
-        if (employeeUpdateRequest.getPassword() != null) {
-            employeeEntity.setPassword(employeeUpdateRequest.getPassword());
-        }
+
         employeeRepository.save(employeeEntity);
         return "saved";
     }

@@ -5,6 +5,15 @@ public class EmployeeUpdateRequest {
     private long id;
     private String name;
     private String password;
+    private String oldPassword;
+
+    public String getOldPassword() {
+        return oldPassword;
+    }
+
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
+    }
 
     public long getId() {
         return id;
