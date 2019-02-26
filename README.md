@@ -3,16 +3,16 @@
 #### 1. MySQL:
 
 ```mysql
+CREATE DATABASE XXX;
+
 CREATE USER 'x'@'localhost'
 IDENTIFIED BY 'password';
 
 GRANT ALL PRIVILEGES
-TO *.*
+ON XXX.*
 TO 'x'@'localhost';
 
 FLUSH PRIVILEGES;
-
-CREATE DATABASE XXX;
 ```
 
 
