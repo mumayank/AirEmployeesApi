@@ -9,7 +9,7 @@ CREATE USER 'x'@'localhost'
 IDENTIFIED BY 'password';
 
 GRANT ALL PRIVILEGES
-ON XXX.*
+ON *.*
 TO 'x'@'localhost';
 
 FLUSH PRIVILEGES;
