@@ -36,7 +36,7 @@ FLUSH PRIVILEGES;
 
 ```java
 spring.datasource.username=x
-spring.datasouoce.password=y
+spring.datasource.password=y
 spring.datasource.url=jdbc:mysql://localhost:3306/xyz
 spring.jpa.hibernate.ddl-auto=update
 ```
